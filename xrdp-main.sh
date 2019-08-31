@@ -33,3 +33,12 @@ sudo /etc/init.d/xrdp restart
 
 cd $HOME && echo "gnome-session --session=gnome-fallback" > .xsession
 
+
+ubuntu bionic
+
+apt-get install xrdp mate-core mate-desktop-environment mate-notification-daemon -y
+
+sed -i.bak '/fi/a #xrdp multiple users configuration \n mate-session \n' /etc/xrdp/startwm.sh
+
+ufw allow 3389/tcp
+
